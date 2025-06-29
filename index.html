@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SureJournal</title>
+    </head>
+    <body>
+        <h1>My Journal</h1>
+        <textarea id="entry" placeholder="Write here..."></textarea>
+        <button id="save">Save</button>
+        <h2>Old Entry</h2>
+        <p id="oldEntry"></p>
+
+        <script>
+            const saveBtn = document.getElementById("save");
+            const textEntry = document.getElementById("entry");
+
+
+            saveBtn.addEventListener("click", () => {
+                localStorage.setItem("entry", textEntry.value);
+            })
+
+            // Load past entries
+            window.onload = () => {
+                const entry = localStorage.getItem("entry");
+                if (entry) {
+                    const oldEntry = document.getElementById("oldEntry");
+                    oldEntry.textContent = entry;
+                }
+            }            
+
+        </script>
+    </body>
+</html>
