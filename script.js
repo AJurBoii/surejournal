@@ -54,14 +54,23 @@ function loadEntries() {
         entries.forEach(entry => {
             newElement = document.createElement('p');
             newElement.innerHTML = `<strong>${entry.timestamp}</strong>: ${entry.text}`;
+            deleteButton = document.createElement('button');
+            deleteButton.innerHTML = `Delete`;
+            deleteButton.addEventListener("click", () => {
+                deleteEntry(entry.id);
+            });
 
+            referenceElement.insertAdjacentElement('afterend', deleteButton);
             referenceElement.insertAdjacentElement('afterend', newElement);
         })
     }
 }
 
-const saveBtn = document.getElementById("save");
+function deleteEntry(entryID) {
+    console.log("deleteEntry() to be implemented.");
+}
 
+const saveBtn = document.getElementById("save");
 
 saveBtn.addEventListener("click", () => {
     const entryText = document.getElementById("entry").value;
