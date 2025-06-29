@@ -33,6 +33,7 @@ function saveEntry(entryText) {
 
     // request callback
     request.onsuccess = () => {
+        alert("Entry saved!");
         console.log("Entry saved!");
     }
 
