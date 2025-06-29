@@ -1,0 +1,2 @@
+# surejournal
+SureJournal app repo
