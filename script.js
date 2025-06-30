@@ -16,7 +16,7 @@ request.onerror = (event) => {
     console.log("indexedDB error: " + event.target.error);
 }
 
-function saveEntry(entryText) {
+function saveEntry(entryText, entryMood) {
     // Initializes the transaction in which we'll be adding an object. The two parameters establish the scope of the transaction (which stores, possibly multiple, can be interacted with) and the access type.
     const transaction = db.transaction("entries", "readwrite");
     // Specifies which specific store we'll be interacting with within this transaction
@@ -25,6 +25,7 @@ function saveEntry(entryText) {
     // We must initialize an object to add to the db, otherwise a the auto-generated id instance variable can't be added and thus no key path.
     entry = {
         text: entryText,
+        mood: entryMood,
         timestamp: new Date().toLocaleString()
     }
 
@@ -54,6 +55,9 @@ function loadEntries() {
         entries.forEach(entry => {
             newElement = document.createElement('p');
             newElement.innerHTML = `<strong>${entry.timestamp}</strong>: ${entry.text}`;
+            if (entry.mood) {
+                newElement.innerHTML += ` | Mood: ${entry.mood}`;
+            }
             deleteButton = document.createElement('button');
             deleteButton.innerHTML = `Delete`;
             deleteButton.addEventListener("click", () => {
@@ -80,7 +84,16 @@ function deleteEntry(entryID) {
 const saveBtn = document.getElementById("save");
 
 saveBtn.addEventListener("click", () => {
+    const moodForm = document.getElementById("moodForm");
+    const entryMood = moodForm.elements['mood'].value;
+
+    if (entryMood == "") {
+        console.log("No mood selected.");
+    } else {
+        console.log("Mood: " + entryMood);
+    }
+
     const entryText = document.getElementById("entry").value;
-    saveEntry(entryText);
+    saveEntry(entryText, entryMood);
     location.reload();
 });
