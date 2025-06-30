@@ -67,7 +67,6 @@ function loadEntries() {
 }
 
 function deleteEntry(entryID) {
-    console.log("deleteEntry() to be implemented.");
     const transaction = db.transaction("entries", "readwrite");
     const store = transaction.objectStore("entries");
     const request = store.delete(entryID);

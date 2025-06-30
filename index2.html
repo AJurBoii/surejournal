@@ -6,6 +6,19 @@
     <body>
         <h1>My Journal (IDB)</h1>
         <textarea id="entry" placeholder="Write here..."></textarea>
+        <form id="moodForm">
+            <p>How are you feeling? (Choose whichever is most accurate)</p>
+            <input type="radio" id="moodHappy" name="mood" value="Happy">
+            <label for="moodHappy">Happy</label>
+            <input type="radio" id="moodSad" name="mood" value="Sad">
+            <label for="moodSad">Sad</label>
+            <input type="radio" id="moodAngry" name="mood" value="Angry">
+            <label for="moodAngry">Angry</label>
+            <input type="radio" id="moodAnxious" name="mood" value="Anxious">
+            <label for="moodAnxious">Anxious</label>
+            <input type="radio" id="moodExcited" name="mood" value="Excited">
+            <label for="moodExcited">Excited</label>
+        </form>
         <button id="save">Save</button>
         <h2>Past Entries</h2>
         <div id="entriesList">
