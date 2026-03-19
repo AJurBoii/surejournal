@@ -1,11 +1,11 @@
 [project]
 name = "fastapi-blog"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is a tutorial repo where I follow Corey Schafer's YouTube series on how to make FastAPI web applications."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi",
+    "fastapi[standard]",
 ]
 [tool.uv.sources]
-fastapi = {workspace = true}
+fastapi = { workspace = true }
