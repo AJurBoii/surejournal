@@ -1,8 +1,14 @@
 from datetime import datetime
 
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
-app = FastAPI()
+app = FastAPI(
+    version="0.1.0",
+    title="SureJournal API",
+    description="A simple journaling API built with FastAPI.",
+    contact={"name": "Amarius LeSure", "email": "amariusj.lesure@gmail.com"},
+)
 
 entries: list[dict] = [
     {
@@ -26,9 +32,10 @@ entries: list[dict] = [
 ]
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+@app.get("/entries", response_class=HTMLResponse, include_in_schema=False)
 def home():
-    return {"message": "Hello World!"}
+    return "<h1>SureJournal</h1><h2>Welcome to SureJournal</h2>"
 
 
 @app.get("/api/entries")
