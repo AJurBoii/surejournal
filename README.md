@@ -37,7 +37,8 @@ dependencies = [
 [tool.uv.sources]
 fastapi = {workspace = true}
 ```
-5. Finally, navigate to the Project root (`~/projects/`) and run `uv sync`.
+5. Navigate to the Project root (`~/projects/`) and run `uv sync`.
+6. Run `uv add "fastapi[standard]"`
 Voila! You should be able to use your local FastAPI repo for your project!
 
 ### Setup troubleshooting
