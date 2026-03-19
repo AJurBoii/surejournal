@@ -10,12 +10,10 @@ The plan is to understand FastAPI as an end user and then explore its open sourc
 I'm using Windows Subsystem for Linux (WSL) Ubuntu 24.04.
 1. Install `uv`:
 ```
-[terminal]
 pip install uv
 ```
 2. Use `uv` to initiate your project:
 ```
-[terminal]
 uv init fastapi-blog
 ```
 3. I forked and cloned the FastAPI repo locally. The file structure is as follows:
