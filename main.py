@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI(
     version="0.1.0",
@@ -32,8 +32,8 @@ entries: list[dict] = [
 ]
 
 
-@app.get("/", response_class=HTMLResponse, include_in_schema=False)
-@app.get("/entries", response_class=HTMLResponse, include_in_schema=False)
+@app.get("/", include_in_schema=False)
+@app.get("/entries", include_in_schema=False)
 def home():
     return "<h1>SureJournal</h1><h2>Welcome to SureJournal</h2>"
 
