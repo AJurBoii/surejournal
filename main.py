@@ -10,6 +10,8 @@ app = FastAPI(
     contact={"name": "Amarius LeSure", "email": "amariusj.lesure@gmail.com"},
 )
 
+templates = Jinja2Templates(directory="templates")
+
 entries: list[dict] = [
     {
         "user": "aj.lesure",
