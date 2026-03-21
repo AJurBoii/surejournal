@@ -36,8 +36,8 @@ entries: list[dict] = [
 
 @app.get("/", include_in_schema=False)
 @app.get("/entries", include_in_schema=False)
-def home():
-    return "<h1>SureJournal</h1><h2>Welcome to SureJournal</h2>"
+def home(request: Request):
+    return templates.TemplateResponse(request, "home.html")
 
 
 @app.get("/api/entries")
