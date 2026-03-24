@@ -36,7 +36,7 @@ entries: list[JournalEntry] = [
 @app.get("/", include_in_schema=False)
 @app.get("/entries", include_in_schema=False)
 def home(request: Request):
-    return templates.TemplateResponse(request, "home.html")
+    return templates.TemplateResponse(request, "home.html", {"entries": entries})
 
 
 @app.get("/api/entries")
