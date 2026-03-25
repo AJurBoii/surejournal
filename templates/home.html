@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>{{title}}</title>
-    {% else %}
-        <title>SureJournal</title>
-    {% endif %}
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     <h1>SureJournal</h1>
     <h2>Welcome to SureJournal</h2>
     <p>This is using a Jinja2 template!</p>
+    {% if entries %}
+        <h2>Posts</h2>
+    {% endif %}
     {% for entry in entries %}
         <h3>{{ entry.getTimestamp() }}</h3>
         <h4>{{ entry.getUser() }}</h4>
         <p>{{ entry.getEntry() }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

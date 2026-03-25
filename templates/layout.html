@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% if title %}
+                SureJournal - {{title}}
+            {% else %}
+                SureJournal
+            {% endif %}
+        </title>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock content %}
+    </body>
+    <footer>
+        <p>&copy; 2026 SureJournal. All rights reserved.</p>
+    </footer>
+</html>
