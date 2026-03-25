@@ -1,7 +1,7 @@
 [project]
-name = "fastapi-blog"
+name = "surejournal"
 version = "0.1.0"
-description = "This is a tutorial repo where I follow Corey Schafer's YouTube series on how to make FastAPI web applications."
+description = "This is a tutorial/personal project repo where I follow Corey Schafer's YouTube series on how to make a FastAPI web app in order to make my first independent web app."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
