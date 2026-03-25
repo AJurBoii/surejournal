@@ -1,7 +1,12 @@
 ## Description
-Hello! This is a tutorial repo where I follow along to Corey Schafer's FastAPI series on YouTube, which can be found [here](https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI).
+What initially started as a purely tutorial repo, has now morphed into a tutorial/personal project. I follow along with [Corey Schafer's FastAPI tutorial series on YouTube.](https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI) while making my own edits to match what I want this application to be. My goal is to make a mental health journaling app with the following features:
+- [] a database for users to keep their journal entries and stuff
+- [] user authentication/authorization
+- [] mood tracking
+- [] interactive guided breathing exercises
+- [] mental health research hub
 
-The plan is to understand FastAPI as an end user and then explore its open source codebase which I've forked. I hope to make a meaningful contribution to the FastAPI codebase and by doing so, improving my ability to:
+The secondary intention with this project is to understand FastAPI as an end user and then explore its open source codebase which I've forked. I hope to make a meaningful contribution to the FastAPI codebase and by doing so, improving my ability to:
 - read other people's code
 - navigate large codebases
 - contribute to open source projects
