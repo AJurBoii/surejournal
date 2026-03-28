@@ -1,14 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>SureJournal</h1>
-    <h2>Welcome to SureJournal</h2>
-    <p>This is using a Jinja2 template!</p>
+    <div class="row bg-primary text-white p-2 my-2">
+        <h2>Welcome to SureJournal</h2>
+        <p>This is using a Jinja2 template!</p>
+    </div>
     {% if entries %}
+    <div class="container-fluid bg-secondary text-white p-2 my-2">
         <h2>Posts</h2>
+    </div>
     {% endif %}
-    {% for entry in entries %}
-        <h3>{{ entry.getTimestamp() }}</h3>
-        <h4>{{ entry.getUser() }}</h4>
-        <p>{{ entry.getEntry() }}</p>
-    {% endfor %}
+    <div class="row">
+        {% for entry in entries %}
+            <div class="col bg-light border m-2 p-2">
+                <h3>{{ entry.getTimestamp() }}</h3>
+                <h4>{{ entry.getUser() }}</h4>
+                <p>{{ entry.getEntry() }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
