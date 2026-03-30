@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from fastapi import FastAPI, Request # type: ignore
-from fastapi.templating import Jinja2Templates #type: ignore
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 
 from entries import JournalEntry
 
