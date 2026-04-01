@@ -44,7 +44,7 @@ class UserJournal:
     def __repr__(self):
         text = ["User: " + self.user]
         for key in self.entries:
-            text.append(f"\tEntry ID: {key}\n\t{self.entries[key]}")
+            text.append(f'\tEntry ID: {key}\n\t\t"{self.entries[key].getContent()}"')
         return "\n".join(text)
 
 
