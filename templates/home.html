@@ -4,20 +4,18 @@
         <h2>Welcome to SureJournal</h2>
         <p>This is using a Jinja2 template!</p>
     </div>
-    {% if entries %}
+    {% if journal %}
     <div class="container-fluid bg-secondary text-white p-2 my-2">
         <div class="row row-cols-2">
-            <div class="col"><h2>Entries</h2></div>
-            <div class="col"><h2>aj.lesure</h2></div>
+            <div class="col"><h2>{{ journal.getUser() }}'s Entries</h2></div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-        {% for entry in entries %}
+        {% for entry in journal.getEntries().values() %}
             <div class="col bg-light border m-2 g-2">
                 <h3>{{ entry.getTimestamp() }}</h3>
-                <h4>{{ entry.getUser() }}</h4>
-                <p>{{ entry.getEntry() }}</p>
+                <p>{{ entry.getContent() }}</p>
             </div>
         {% endfor %}
         </div>

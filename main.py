@@ -3,7 +3,7 @@ from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 
-from entries import JournalEntry
+from entries import JournalEntry, UserJournal
 
 app = FastAPI(
     version="0.1.0",
@@ -14,33 +14,38 @@ app = FastAPI(
 
 templates = Jinja2Templates(directory="templates")
 
-entries: list[JournalEntry] = [
-    JournalEntry(
-        user="aj.lesure",
-        content="Today I felt a little anxious to learn FastAPI, but I know everything will work out as long as I pace myself and have confidence.",
-        timestamp=datetime(2026, 3, 19, 13, 4, 0),
-    ),
-    JournalEntry(
-        user="aj.lesure",
-        content="I just learned how to create datetime objects and format them into strings. I feel pretty good about that!",
-        timestamp=datetime(2026, 3, 19, 13, 11, 0),
-    ),
-    JournalEntry(
-        user="random.person",
-        content="Hello, I am a random person using this journaling app to write about my feelings and keep track of my mood. It's helpful!!",
-        timestamp=datetime.now(),
-    ),
-]
+# entries: list[JournalEntry] = [
+#     JournalEntry(
+#         user="aj.lesure",
+#         content="Today I felt a little anxious to learn FastAPI, but I know everything will work out as long as I pace myself and have confidence.",
+#         timestamp=datetime(2026, 3, 19, 13, 4, 0),
+#     ),
+#     JournalEntry(
+#         user="aj.lesure",
+#         content="I just learned how to create datetime objects and format them into strings. I feel pretty good about that!",
+#         timestamp=datetime(2026, 3, 19, 13, 11, 0),
+#     ),
+#     JournalEntry(
+#         user="random.person",
+#         content="Hello, I am a random person using this journaling app to write about my feelings and keep track of my mood. It's helpful!!",
+#         timestamp=datetime.now(),
+#     ),
+# ]
+
+journal = UserJournal("aj.lesure")
+journal.addEntry(
+    "Today I felt a little anxious to learn FastAPI, but I know everything will work out as long as I pace myself and have confidence."
+)
 
 
 @app.get("/", include_in_schema=False)
 @app.get("/entries", include_in_schema=False)
 def home(request: Request):
     return templates.TemplateResponse(
-        request, "home.html", {"entries": entries, "title": "Posts"}
+        request, "home.html", {"journal": journal, "title": "Entries"}
     )
 
 
 @app.get("/api/entries")
 def get_entries():
-    return entries
+    return journal.getEntries()
