@@ -37,8 +37,8 @@ class UserJournal:
     def getEntries(self) -> dict[int, JournalEntry]:
         return self.entries
 
-    def addEntry(self, content: str) -> None:
-        self.entries[self.id] = JournalEntry(content, datetime.now())
+    def addEntry(self, content: str, time: datetime) -> None:
+        self.entries[self.id] = JournalEntry(content, time)
         self.id += 1
 
     def __repr__(self):
@@ -49,13 +49,13 @@ class UserJournal:
 
 
 testJournal = UserJournal("aj.lesure")
-testJournal.addEntry("This is a test entry")
-testJournal.addEntry("This is a second test entry")
+testJournal.addEntry("This is a test entry", datetime.now())
+testJournal.addEntry("This is a second test entry", datetime.now())
 
 secondTestJournal = UserJournal("random.person")
-secondTestJournal.addEntry("This is the first entry of another user.")
-secondTestJournal.addEntry("This is the second entry of anonther user.")
-secondTestJournal.addEntry("This is the third entry of another user.")
+secondTestJournal.addEntry("This is the first entry of another user.", datetime.now())
+secondTestJournal.addEntry("This is the second entry of another user.", datetime.now())
+secondTestJournal.addEntry("This is the third entry of another user.", datetime.now())
 
 print(testJournal)
 print(secondTestJournal)

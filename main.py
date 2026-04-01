@@ -3,7 +3,7 @@ from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 
-from entries import JournalEntry, UserJournal
+from entries import UserJournal
 
 app = FastAPI(
     version="0.1.0",
@@ -34,7 +34,12 @@ templates = Jinja2Templates(directory="templates")
 
 journal = UserJournal("aj.lesure")
 journal.addEntry(
-    "Today I felt a little anxious to learn FastAPI, but I know everything will work out as long as I pace myself and have confidence."
+    "Today I felt a little anxious to learn FastAPI, but I know everything will work out as long as I pace myself and have confidence.",
+    datetime(2026, 3, 19, 13, 4, 0),
+)
+journal.addEntry(
+    "I just learned how to create datetime objects and format them into strings. I feel pretty good about that!",
+    datetime(2026, 3, 19, 13, 11, 0),
 )
 
 
