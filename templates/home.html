@@ -5,9 +5,19 @@
         <p>This is using a Jinja2 template!</p>
     </div> -->
     {% if journal %}
-    <div class="container-fluid bg-secondary text-white p-2 my-2">
-        <div class="row row-cols-2">
-            <div class="col"><h2>{{ journal.getUser() }}'s Entries</h2></div>
+    <div class="container-fill border-bottom border-2 mx-2 my-2">
+        <h2>{{ journal.getUser() }}'s Entries</h2>
+    </div>
+    <!-- <div class="container-fill border border-1 border-black px-2 my-2">
+        <div class="row px-2">
+            <div class="col-4">hello</div>
+            <div class="col-8">test</div>
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="row border border-1 border-black">
+            <div class="col-4">Sort By</div>
+            <div class="col-8">Date Added (Descending)</div>
         </div>
     </div>
     <div class="container-fluid">
