@@ -22,7 +22,7 @@
         <div class="row">
         {% for entry in journal.getEntries().values() %}
             <div class="col bg-light border m-2 g-2">
-                <h3>{{ entry.getTimestamp() }}</h3>
+                <h3>{{ entry.printTimestamp() }}</h3>
                 <p>{{ entry.getContent() }}</p>
             </div>
         {% endfor %}
