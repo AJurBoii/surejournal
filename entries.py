@@ -13,7 +13,10 @@ class JournalEntry:
     def getContent(self) -> str:
         return self.content
 
-    def getTimestamp(self) -> str:
+    def getTimestamp(self) -> list[str]:
+        return self.timestamp
+
+    def printTimestamp(self) -> str:
         return (
             "Posted "
             + self.timestamp[len(self.timestamp) - 1]
