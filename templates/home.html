@@ -1,9 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <!-- <div class="row p-2 my-2">
-        <h2>Welcome to SureJournal</h2>
-        <p>This is using a Jinja2 template!</p>
-    </div> -->
+    <!-- In the future, this will be based on a database query checking for entries in the user's journal. For now it is hardcoded using a FastAPI request.-->
     {% if journal %}
     <div class="container border-bottom border-2 mb-3 mt-3">
         <div class="row">
@@ -12,6 +9,7 @@
             </div>
         </div>
     </div>
+    <!-- Currently just for decoration. Will add sorting functionality later. -->
     <div class="container">
         <div class="row">
             <div class="col-auto border border-1 border-black border-end-0 pe-10">Sort By</div>
@@ -19,13 +17,25 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
         {% for entry in journal.getEntries().values() %}
-            <div class="col bg-light border m-2 g-2">
-                <h3>{{ entry.printTimestamp() }}</h3>
-                <p>{{ entry.getContent() }}</p>
+            <div class="row">
+                <div class="col bg-light border m-2 g-2">
+                    <h3>{{ entry.printTimestamp() }}</h3>
+                    <p>{{ entry.getContent() }}</p>
+                </div>
             </div>
         {% endfor %}
+    </div>
+    <!-- If the user's journal is empty, this is what will display. -->
+    {% else %}
+    <div class="container border-bottom border-2 mb-3 mt-3">
+        <div class="row">
+            <div class="col">
+                <h2>Welcome to SureJournal!</h2>
+                <p>Start journaling today to capture your thoughts, feelings, and experiences. Your journal is a safe space for self-expression and reflection. Click the button below to create your first entry and begin your journaling journey.</p>
+                <!-- Button turns to a darker purple on hover and when clicked to match site theme. -->
+                <a href="#" class="btn btn-primary bg-purple" style="--bs-btn-hover-bg: #5a32a3; --bs-btn-active-bg: #5a32a3;">Create Your First Entry</a>
+            </div>
         </div>
     </div>
     {% endif %}
